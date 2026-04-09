@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Practical No.4 (WD) — Advanced Tables</title>
+  <style>
+    :root{font-family: system-ui,Segoe UI,Roboto,Arial; color:#222}
+    body{padding:24px;background:#f6f7fb}
+    h1{font-size:20px;margin-bottom:8px}
+    .wrap{max-width:1100px;margin:0 auto}
+    .table-wrap{background:#fff;padding:16px;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,.06);margin-bottom:18px}
+    table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:14px}
+    caption{caption-side:top;text-align:left;font-weight:600;padding-bottom:8px}
+    thead th{background:#0b69ff;color:#fff;padding:10px 8px;position:sticky;top:0;z-index:2;text-align:left}
+    th,td{border:1px solid #e6e9ef;padding:8px}
+    tbody tr:nth-child(even){background:#fbfbfd}
+    .time-col{width:110px}
+    .center{text-align:center}
+    .muted{color:#6b7280;font-size:13px}
+    @media (max-width:720px){
+      .responsive{overflow:auto;-webkit-overflow-scrolling:touch}
+      thead th{position:static}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Practical No.4 (WD) — Advanced Table Demo</h1>
+
+    <section class="table-wrap responsive" aria-labelledby="timetable-title">
+      <h2 id="timetable-title">Class Timetable</h2>
+      <table role="table" aria-label="Class timetable for Grade 10A">
+        <caption>Grade 10A — Weekly Timetable</caption>
+        <colgroup>
+          <col class="time-col">
+          <col span="5">
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="col">Time</th>
+            <th scope="col">Monday</th>
+            <th scope="col">Tuesday</th>
+            <th scope="col">Wednesday</th>
+            <th scope="col">Thursday</th>
+            <th scope="col">Friday</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <td colspan="6" class="muted">Note: Labs are in the afternoon. Teachers' abbreviations: <abbr title="Mathematics">Math (M)</abbr>, <abbr title="Science">Sci (S)</abbr>, <abbr title="English">Eng (E)</abbr>.</td>
+          </tr>
+        </tfoot>
+        <tbody>
+          <tr>
+            <th scope="row">09:00–10:00</th>
+            <td headers="h-time h-mon">Math <span class="muted">(M)</span></td>
+            <td headers="h-time h-tue">English <span class="muted">(E)</span></td>
+            <td headers="h-time h-wed">History</td>
+            <td headers="h-time h-thu">Math <span class="muted">(M)</span></td>
+            <td headers="h-time h-fri">Geography</td>
+          </tr>
+          <tr>
+            <th scope="row">10:15–11:15</th>
+            <td>Physics <span class="muted">(S)</span></td>
+            <td>Biology <span class="muted">(S)</span></td>
+            <td>Civics</td>
+            <td>English <span class="muted">(E)</span></td>
+            <td>Mathematics <span class="muted">(M)</span></td>
+          </tr>
+          <tr>
+            <th scope="row">11:30–12:30</th>
+            <td colspan="2">Assembly / Special Session</td>
+            <td>Computer Lab</td>
+            <td>Library</td>
+            <td>Physical Education</td>
+          </tr>
+          <tr>
+            <th scope="row">13:30–14:30</th>
+            <td>Chemistry Lab</td>
+            <td>Mathematics</td>
+            <td>English</td>
+            <td>Science</td>
+            <td>Free Period</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="table-wrap responsive" aria-labelledby="students-title">
+      <h2 id="students-title">Student Records</h2>
+      <table aria-label="Student record table">
+        <caption>Student Record — Grade 10A</caption>
+        <colgroup>
+          <col style="width:32%">
+          <col style="width:18%">
+          <col style="width:12%">
+          <col style="width:18%">
+          <col>
+        </colgroup>
+        <thead>
+          <tr>
+            <th id="h-name" scope="col">Name</th>
+            <th id="h-id" scope="col">Student ID</th>
+            <th id="h-grade" scope="col">Avg Grade</th>
+            <th id="h-att" scope="col">Attendance</th>
+            <th id="h-remarks" scope="col">Remarks</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Asha Patel</th>
+            <td headers="h-id">G10A-001</td>
+            <td headers="h-grade" class="center">88%</td>
+            <td headers="h-att" class="center">96%</td>
+            <td headers="h-remarks">Excellent work; active in labs.</td>
+          </tr>
+          <tr>
+            <th scope="row">Rohan Singh</th>
+            <td headers="h-id">G10A-002</td>
+            <td headers="h-grade" class="center">75%</td>
+            <td headers="h-att" class="center">89%</td>
+            <td headers="h-remarks">Needs improvement in English.</td>
+          </tr>
+          <tr>
+            <th scope="row">Maya Rao</th>
+            <td headers="h-id">G10A-003</td>
+            <td headers="h-grade" class="center">92%</td>
+            <td headers="h-att" class="center">98%</td>
+            <td headers="h-remarks">Math top-performer.</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="5" class="muted">Tip: Use column headers with `scope` and row headers for screen-reader clarity. `abbr` and `aria-label` improve accessibility.</td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+
+  </div>
+</body>
+</html>
